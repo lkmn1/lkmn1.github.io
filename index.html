@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+
+      ::-webkit-scrollbar {
+        overflow: hidden;
+      }
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: #f5f7ff;
+      }
+      /* Navbar */
+      nav {
+        font-family: "Roboto", sans-serif;
+        font-size: calc(0.7rem + 0.21rem + 0.2rem);
+        display: flex;
+        background-color: #fff;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+        justify-content: space-around;
+        height: 40px;
+        width: 100%;
+        position: fixed;
+        align-items: center;
+        top: 0;
+        transition: top 0.5s;
+        color: rgb(0, 0, 0);
+        z-index: 1000;
+      }
+      nav .logo {
+        font-family: "Poppins", sans-serif;
+        letter-spacing: 3px;
+      }
+      nav ul {
+        display: flex;
+        list-style: none;
+        width: 40%;
+        justify-content: space-between;
+      }
+      nav ul li a {
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+        font-size: 0.8em;
+      }
+      nav ul li a:hover {
+        color: rgb(107, 107, 107);
+      }
+
+      /* Menu hambuerger */
+      .menu-toggle {
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 20px;
+        position: relative;
+      }
+
+      .menu-toggle input {
+        position: absolute;
+        width: 40px;
+        height: 28px;
+        left: -6px;
+        top: -3px;
+        opacity: 0;
+        cursor: pointer;
+        z-index: 100;
+      }
+
+      /* Animasi Menu Hamburger */
+      .menu-toggle span:nth-child(2) {
+        transform-origin: 0 0;
+      }
+
+      .menu-toggle span:nth-child(4) {
+        transform-origin: 0 100%;
+      }
+
+      .menu-toggle input:checked ~ span:nth-child(2) {
+        transform: rotate(45deg) translate(-1px, -1px);
+      }
+      .menu-toggle input:checked ~ span:nth-child(4) {
+        transform: rotate(-45deg) translate(-1px, 0);
+        width: 28px;
+      }
+
+      .menu-toggle input:checked ~ span:nth-child(3) {
+        opacity: 0;
+        transform: scale(0);
+      }
+
+      .menu-toggle span {
+        display: block;
+        width: 28px;
+        height: 3px;
+        background-color: rgb(0, 0, 0);
+        border-radius: 4px;
+        transition: all 0.5s;
+      }
+      .menu-toggle span:nth-child(3) {
+        width: 24px;
+      }
+      .menu-toggle span:nth-child(4) {
+        width: 18px;
+      }
+      /* Tablet */
+      @media screen and (max-width: 800px) {
+        nav ul {
+          width: 50%;
+        }
+      }
+
+      /* mobile */
+      @media screen and (max-width: 576px) {
+        .menu-toggle {
+          display: flex;
+        }
+        nav ul {
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: 100%;
+          height: 100vh;
+          justify-content: space-evenly;
+          flex-direction: column;
+          align-items: center;
+          background-color: rgb(255, 255, 255);
+          z-index: -1;
+          transform: translateX(100%);
+          transition: all 1s;
+          opacity: 0;
+          border-top: 2px;
+        }
+        nav ul.slide {
+          opacity: 1;
+          transform: translate(0);
+        }
+      }
+      .hero-section {
+        background-image: linear-gradient(6deg, #f5f7ff 21%, #fff 12.12%);
+        background-repeat: no-repeat;
+        text-align: center;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        flex-wrap: nowrap;
+      }
+      .hero-section h1 {
+        font-size: 3em;
+        color: #5a5c5f;
+      }
+      .hero-section h2 {
+        font-size: 3em;
+        color: #2c394b;
+      }
+      .hero-section h3 {
+        text-decoration: underline;
+        text-decoration-color: #0099ff;
+      }
+      .about-section,
+      .skills-section,
+      .project-section {
+        max-width: 1000px;
+        margin: 0 auto;
+        margin-top: 15rem;
+      }
+      .about-header {
+        font-size: 2em;
+        font-family: "Roboto", sans-serif;
+        font-weight: 500;
+      }
+      .about-tagline p {
+        font-size: 1.3em;
+        margin: 35px;
+        font-family: "Poppins", sans-serif;
+      }
+      .about-tagline a {
+        text-decoration: none;
+        color: royalblue;
+      }
+      .js {
+        background-color: #efd81d;
+      }
+      .skills-section {
+        display: flex;
+        margin-top: 10rem;
+      }
+      .skills-category {
+        margin-left: 5rem;
+      }
+      .skills-section .skills-category ul li {
+        list-style: none;
+        padding: 3px 0;
+      }
+      .skills-header {
+        font-weight: bold;
+        font-size: 1.7em;
+      }
+      .skills-label {
+        font-weight: bold;
+        padding-top: 4px;
+      }
+      @media screen and (max-width: 576px) {
+        .skills-section {
+          flex-flow: row wrap;
+        }
+        .skills-label {
+          padding-top: 4px;
+        }
+      }
+      .project-section {
+        margin-bottom: 2rem;
+      }
+      .img-project {
+        width: 80%;
+        height: 80%;
+        border-radius: 10px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      }
+
+      .img-project:hover {
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+          0 10px 10px rgba(0, 0, 0, 0.22);
+      }
+
+      .project-img-container {
+        display: flex;
+      }
+      .d-flex {
+        display: flex;
+      }
+      @media screen and (max-width: 576px) {
+        .project-img-container {
+          width: 380px;
+        }
+        .hero-section {
+          margin-top: 1rem;
+        }
+      }
+
+      .stage {
+        padding: 40px;
+        text-align: center;
+      }
+      .more {
+        line-height: 1em;
+        letter-spacing: 0.06em;
+        font-weight: normal;
+        font-size: 16px;
+        text-decoration: none;
+        color: #fff;
+        background: #231f20;
+        display: inline-block;
+        padding: 15px 12px 15px 15px;
+        transition: background 200ms;
+        border-radius: 4px;
+      }
+      .more:hover {
+        background: #cea052;
+      }
+      .more:after {
+        font-weight: 300;
+        content: ">";
+        margin-left: 20px;
+        color: #cea052;
+        font-size: 18px;
+        vertical-align: middle;
+        transition: color 200ms;
+      }
+
+      .more:hover:after {
+        color: #231f20;
+      }
+      /* Footer */
+      footer {
+        padding: 20px;
+        background-color: #fff;
+        text-align: center;
+      }
+      footer span {
+        color: red;
+      }
+      footer a {
+        color: dodgerblue;
+      }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <title>Lukman Ardiyansyah</title>
+  </head>
+  <body>
+    <nav id="navbar">
+      <div class="menu-toggle">
+        <input type="checkbox" />
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="logo">
+        <h4>Lukman Ardiyansyah</h4>
+      </div>
+      <ul>
+        <li><a data-scroll href="#about" target="_top">About</a></li>
+        <li><a data-scroll href="#skills">Skills</a></li>
+        <li><a data-scroll href="#projects">Projects</a></li>
+        <li><a data-scroll href="#footer">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Hero -->
+    <div data-aos="fade-right">
+      <section class="hero-section">
+        <h1 data-aos="fade-right">Hello i'am,</h1>
+        <h2>Lukman Ardiyansyah</h2>
+        <h3>Front-end web developer</h3>
+      </section>
+    </div>
+
+    <main>
+      <!-- About -->
+      <div data-aos="fade-up" data-aos-once="true">
+        <section class="about-section" id="about">
+          <header class="about-header">About Me</header>
+          <div class="about-tagline">
+            <p>
+              Hello my name is lukman ardiyanys i'm student at
+              <a href="https://smkdp1jkt.sch.id/">SMKs DP1</a> and I have coding
+              knowledge of <span class="js">JavaScript</span>, HTML, CSS,
+              Python. i mainly relating to hardware, and also intersted doing
+              front-end web
+            </p>
+            <p>
+              Besides the front end I also learn about nodejs and PHP to make my
+              website working
+            </p>
+          </div>
+        </section>
+      </div>
+
+      <!-- Skills -->
+
+      <section class="skills-section" id="skills">
+        <header class="skills-header" style="color: #007bff">Skills</header>
+        <div
+          class="skills-category"
+          data-aos="fade-up-right"
+          data-aos-delay="50"
+          data-aos-once="true"
+        >
+          <div class="skills-label">Languages</div>
+          <ul>
+            <li>JavaScript (ES6)</li>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>PHP</li>
+          </ul>
+        </div>
+        <div
+          class="skills-category"
+          data-aos="fade-up-left"
+          data-aos-delay="50"
+          data-aos-once="true"
+        >
+          <div class="skills-label">Framework</div>
+          <ul>
+            <li>Bootstarp CSS</li>
+            <li>Bulma CSS</li>
+            <li>React.js</li>
+            <li>Nodejs</li>
+          </ul>
+        </div>
+        <div
+          class="skills-category"
+          data-aos="fade-up-right"
+          data-aos-once="true"
+        >
+          <div class="skills-label">Tools</div>
+          <ul>
+            <li>Git and Github</li>
+            <li>Chrome DevTools</li>
+            <li>Bash</li>
+            <li>Github</li>
+            <li>NPM</li>
+          </ul>
+        </div>
+        <div
+          class="skills-category"
+          data-aos="fade-up-right"
+          data-aos-duration="1100"
+          data-aos-once="true"
+        >
+          <div class="skills-label">Other</div>
+          <ul>
+            <li>Photoshop</li>
+            <li>Adobe XD</li>
+            <li>Googling</li>
+            <li>Office Excel/Word</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Project -->
+
+      <section class="project-section" id="projects">
+        <header
+          class="skills-header"
+          style="color: #007bff; margin-bottom: 1rem"
+        >
+          Projects
+        </header>
+        <div class="project-img-container">
+          <div data-aos="fade-right" data-aos-once="true">
+            <img
+              class="img-project"
+              src="php-spa-crud.png"
+              alt="Native PHP Single Page Aplication"
+            />
+          </div>
+          <div class="d-flex" style="align-self: center; padding-left: 1.5rem">
+            Native PHP Single Page Aplication
+          </div>
+        </div>
+        <div
+          class="project-img-container"
+          style="
+            padding: 1rem 5px;
+            justify-content: space-around;
+            align-items: center;
+          "
+        >
+          <div class="d-flex" style="padding: 1rem 5px">
+            And styled With Bulma CSS
+          </div>
+          <div data-aos="fade-left" data-aos-once="true">
+            <img class="img-project" src="php-spa-crud-2.png" alt="" />
+          </div>
+        </div>
+        <div class="project-img-container">
+          <div data-aos="fade-right" data-aos-once="true">
+            <img
+              class="img-project"
+              src="tugas-pkw.png"
+              alt="Native PHP Single Page Aplication"
+            />
+          </div>
+          <div class="d-flex" style="align-self: center; padding-left: 1.5rem">
+            Tugas PKW Style with Bootstarp v5 CSS
+          </div>
+        </div>
+        <div class="stage">
+          <a class="more" href="https://github.com/lkmn1">More Projects</a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer">
+      Created by lukman <span>❤</span> |
+      <a href="https://t.me/invalidUserName1201" target="_blank">Contact</a>
+    </footer>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15/dist/smooth-scroll.polyfills.min.js"></script>
+    <script>
+      var scroll = new SmoothScroll('a[href*="#"]');
+    </script>
+    <script>
+      const menuToggle = document.querySelector(".menu-toggle input");
+      let nav = document.querySelector("nav ul");
+
+      // hambuerger menu
+      menuToggle.addEventListener("click", () => {
+        nav.classList.toggle("slide");
+      });
+
+      // hide and show navbar
+      let scrollFix = window.pageYOffset;
+      window.onscroll = () => {
+        let scrollPos = window.pageYOffset;
+        if (scrollFix > scrollPos) {
+          document.querySelector("nav").style.top = "0";
+        } else {
+          document.querySelector("nav").style.top = "-50px";
+          scrollFix = scrollPos;
+        }
+      };
+      // When the user clicks anywhere outside of the navbar, close it
+      window.onclick = (event) => {
+        if (event.target === nav) {
+          menuToggle.checked = false;
+          nav.classList.remove("slide");
+        }
+      };
+    </script>
+  </body>
+</html>

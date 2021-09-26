@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MMA Team</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar is-black" role="navigation" aria-label="main navigation">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item">
+            <h1>Family MMA Team</h1>
+          </a>
+          <!-- Nav burger -->
+          <a
+            role="button"
+            class="navbar-burger"
+            data-target="navMenu"
+            aria-label="menu"
+            aria-expanded="false"
+          >
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <div class="navbar-menu" id="navMenu">
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <a class="navbar-item has-text-light"> Gallery </a>
+              <a class="navbar-item has-text-light"> About </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main -->
+    <main>
+      <div class="hero-section container columns">
+        <div class="column">
+          <img src="asset/bg/pp.jpg" alt="logo" />
+        </div>
+        <div
+          class="column is-flex is-justify-content-center is-align-items-center"
+        >
+          <div class="content">
+            <h1 class="has-text-centered title">Familly MMA Team</h1>
+            <p class="subtitle has-text-centered title">
+              Keluarga Kita Bersama Dan Kita Keluarga Bukan Musuh. 🇮🇩 Ngga
+              milih" Teman,yg nmnya Teman yaa Teman😄Saling tolong,kerja
+              sama,ngga saling merintah sna sni dan ngga sling bertengkar😁kita
+              smua pemimpin kluarga ini gk ada yg nmnya bos atau yg lain😉kita
+              smua sma jgn lupain kluarga ini😇smoga kluarga ini trus di
+              persatukan di dunia maupun di akhirat nanti😃👻 Aminn yaa rabb🙏🏻
+              #melalui segala rintangan&tantangan dengan bersama
+            </p>
+          </div>
+        </div>
+      </div>
+      <section class="section">
+        <div class="container is-fluid">
+          <div class="columns">
+            <!-- column1 -->
+            <div class="column">
+              <img
+                src="asset/img/gallery/mma (1).jpeg"
+                onclick="openModal();currentSlide(1)"
+              />
+              <img
+                src="asset/img/gallery/mma (2).jpeg"
+                onclick="openModal();currentSlide(4)"
+              />
+              <img
+                src="asset/img/gallery/mma (9).jpeg"
+                onclick="openModal();currentSlide(4)"
+              />
+              <img
+                src="asset/img/gallery/mma (10).jpeg"
+                onclick="openModal();currentSlide(4)"
+              />
+              <img
+                src="asset/img/gallery/mma (13).jpeg"
+                onclick="openModal();currentSlide(4)"
+              />
+              <img
+                src="asset/img/gallery/mma (16).jpeg"
+                onclick="openModal();currentSlide(4)"
+              />
+              <img
+                src="asset/img/gallery/mma (21).jpeg"
+                onclick="openModal();currentSlide(4)"
+              />
+              <img
+                src="asset/img/gallery/mma (22).jpeg"
+                onclick="openModal();currentSlide(4)"
+              />
+              <img
+                src="asset/img/gallery/mma (25).jpeg"
+                onclick="openModal();currentSlide(4)"
+              />
+            </div>
+            <!-- column2 -->
+            <div class="column">
+              <img
+                src="asset/img/gallery/mma (3).jpeg"
+                onclick="openModal();currentSlide(2)"
+              />
+              <img
+                src="asset/img/gallery/mma (4).jpeg"
+                onclick="openModal();currentSlide(5)"
+              />
+              <img
+                src="asset/img/gallery/mma (8).jpeg"
+                onclick="openModal();currentSlide(5)"
+              />
+              <img
+                src="asset/img/gallery/mma (11).jpeg"
+                onclick="openModal();currentSlide(5)"
+              />
+              <img
+                src="asset/img/gallery/mma (14).jpeg"
+                onclick="openModal();currentSlide(5)"
+              />
+              <img
+                src="asset/img/gallery/mma (17).jpeg"
+                onclick="openModal();currentSlide(5)"
+              />
+              <img
+                src="asset/img/gallery/mma (20).jpeg"
+                onclick="openModal();currentSlide(5)"
+              />
+              <img
+                src="asset/img/gallery/mma (23).jpeg"
+                onclick="openModal();currentSlide(5)"
+              />
+            </div>
+            <!-- column3 -->
+            <div class="column">
+              <img
+                src="asset/img/gallery/mma (5).jpeg"
+                onclick="openModal();currentSlide(3)"
+              />
+              <img
+                src="asset/img/gallery/mma (6).jpeg"
+                onclick="openModal();currentSlide(6)"
+              />
+              <img
+                src="asset/img/gallery/mma (7).jpeg"
+                onclick="openModal();currentSlide(6)"
+              />
+              <img
+                src="asset/img/gallery/mma (12).jpeg"
+                onclick="openModal();currentSlide(6)"
+              />
+              <img
+                src="asset/img/gallery/mma (15).jpeg"
+                onclick="openModal();currentSlide(6)"
+              />
+              <img
+                src="asset/img/gallery/mma (18).jpeg"
+                onclick="openModal();currentSlide(6)"
+              />
+              <img
+                src="asset/img/gallery/mma (19).jpeg"
+                onclick="openModal();currentSlide(6)"
+              />
+              <img
+                src="asset/img/gallery/mma (24).jpeg"
+                onclick="openModal();currentSlide(6)"
+              />
+            </div>
+          </div>
+
+          <div class="modal" id="myModal">
+            <div class="modal-content is-vcentered">
+              <div class="item-slide">
+                <img
+                  src="asset/img/gallery/mma (1).jpeg"
+                  onclick="openModal();currentSlide(1)"
+                />
+              </div>
+              <div class="item-slide">
+                <img
+                  src="asset/img/gallery/mma (2).jpeg"
+                  onclick="openModal();currentSlide(4)"
+                />
+              </div>
+              <div class="item-slide">
+                <img
+                  src="asset/img/gallery/mma (9).jpeg"
+                  onclick="openModal();currentSlide(4)"
+                />
+              </div>
+              <div class="item-slide">
+                <img
+                  src="asset/img/gallery/mma (10).jpeg"
+                  onclick="openModal();currentSlide(4)"
+                />
+              </div>
+              <div class="item-slide">
+                <img
+                  src="asset/img/gallery/mma (13).jpeg"
+                  onclick="openModal();currentSlide(4)"
+                />
+              </div>
+              <div class="item-slide">
+                <img
+                  src="asset/img/gallery/mma (16).jpeg"
+                  onclick="openModal();currentSlide(4)"
+                />
+              </div>
+              <div class="item-slide">
+                <img
+                  src="asset/img/gallery/mma (21).jpeg"
+                  onclick="openModal();currentSlide(4)"
+                />
+              </div>
+              <div class="item-slide">
+                <img
+                  src="asset/img/gallery/mma (22).jpeg"
+                  onclick="openModal();currentSlide(4)"
+                />
+              </div>
+              <div class="item-slide">
+                <img
+                  src="asset/img/gallery/mma (24).jpeg"
+                  onclick="openModal();currentSlide(4)"
+                />
+              </div>
+              <div class="item-slide">
+                <img
+                  src="asset/img/gallery/mma (21).jpeg"
+                  onclick="openModal();currentSlide(4)"
+                />
+              </div>
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            <button
+              onclick="closeModal()"
+              class="modal-close is-large"
+              aria-label="close"
+            ></button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
