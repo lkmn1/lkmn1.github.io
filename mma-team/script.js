@@ -45,7 +45,6 @@ function currentSlide(n) {
 function showSlides(n) {
   var i;
   var slides = document.getElementsByClassName("item-slide");
-  var captionText = document.getElementById("caption");
   if (n > slides.length) {
     slideIndex = 1;
   }
@@ -57,3 +56,15 @@ function showSlides(n) {
   }
   slides[slideIndex - 1].style.display = "block";
 }
+
+// footer
+let scrollFix = window.pageYOffset;
+window.onscroll = () => {
+  let scrollPos = window.pageYOffset;
+  if (scrollFix > scrollPos) {
+    document.querySelector("footer").style.bottom = "0";
+  } else {
+    document.querySelector("footer").style.bottom = "-50px";
+    scrollFix = scrollPos;
+  }
+};

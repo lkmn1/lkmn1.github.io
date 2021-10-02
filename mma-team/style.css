@@ -90,3 +90,11 @@
 .column img {
   margin-top: 20px;
 }
+
+footer {
+  position: fixed;
+  width: 100%;
+  padding: 0.2rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  transition: all 0.8s;
+}
